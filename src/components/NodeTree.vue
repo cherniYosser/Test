@@ -37,7 +37,7 @@ const loading: Ref<boolean> = ref(false)
 
 onMounted(async () => {
   loading.value = true
-  const response = await fetch('/api')
+  const response = await fetch(import.meta.env.VITE_API_URL)
   if (!response.ok) {
     throw new Error('Network response was not ok')
   }
