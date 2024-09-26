@@ -17,3 +17,4 @@ The **Grammar Search** Web App allows users to browse and search through various
 - **Vue 3**: The progressive JavaScript framework for building user interfaces.
 - **Vite**: Next-generation front-end tooling for fast and efficient development.
 - **TypeScript**: Type-safe language for better development experience.
+- **vitest**: A blazing fast unit-testing framework powered by Vite.
