@@ -35,14 +35,9 @@ const filteredData: Ref<Record<string, Record<string, NodeType>>> = ref({})
 const data: Ref<Record<string, Record<string, NodeType>>> = ref({})
 const loading: Ref<boolean> = ref(false)
 
-const allowOriginUrl = 'https://api.allorigins.win/raw?url='
 onMounted(async () => {
   loading.value = true
-  const response = await fetch(`${allowOriginUrl}https://app.m-itrust.com/v2/public/claims`, {
-    method: 'GET',
-    mode: 'cors',
-    headers: { 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Origin': '*' }
-  })
+  const response = await fetch('/api')
   if (!response.ok) {
     throw new Error('Network response was not ok')
   }
