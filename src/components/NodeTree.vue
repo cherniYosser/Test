@@ -37,9 +37,14 @@ const loading: Ref<boolean> = ref(false)
 
 onMounted(async () => {
   loading.value = true
-  const response = await fetch(import.meta.env.VITE_API_URL, {
-    headers: { 'Access-Control-Allow-Origin:': '*' }
-  })
+  const response = await fetch(
+    import.meta.env.VITE_API_URL,
+
+    {
+      mode: 'cors',
+      headers: { 'Access-Control-Allow-Origin:': '*' }
+    }
+  )
   if (!response.ok) {
     throw new Error('Network response was not ok')
   }
