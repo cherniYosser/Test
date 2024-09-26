@@ -1,12 +1,4 @@
-import type { NodeType } from '@/types/NodeType'
-
-export const fetchClaims = async () => {
-  const response = await fetch('/api') // Use the proxied endpoint
-  if (!response.ok) {
-    throw new Error('Network response was not ok')
-  }
-  return await response.json()
-}
+import type { NodeType } from '@/types/node'
 
 const isObject = (value: any): value is Record<string, any> => {
   return typeof value === 'object' && value !== null

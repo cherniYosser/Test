@@ -23,19 +23,21 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import type { Ref } from 'vue'
 import { filterRecursiveNodes } from '@/utils/functions'
+import type { NodeType } from '@/types/node'
 
 import NodeItem from './NodeItem.vue'
 import Spinner from './Spinner.vue'
 
 const searchTerm = ref('')
-let filteredData = ref({})
-const data = ref({})
-const loading = ref(false)
+const filteredData: Ref<Record<string, Record<string, NodeType>>> = ref({})
+const data: Ref<Record<string, Record<string, NodeType>>> = ref({})
+const loading: Ref<boolean> = ref(false)
 
 onMounted(async () => {
   loading.value = true
-  const response = await fetch('/api')
+  const response = await fetch('https://app.m-itrust.com/v2/public/claims')
   if (!response.ok) {
     throw new Error('Network response was not ok')
   }
@@ -48,15 +50,15 @@ onMounted(async () => {
   loading.value = false
 })
 
-const filterNodes = () => {
+const filterNodes = (): void => {
   if (searchTerm.value === '') {
     filteredData.value = { ...data.value }
     return
   }
 
   // Update to filter both nodes (keys) and leaves (values)
-  filteredData.value = Object.entries(data.value).reduce((acc, [key, nodes]) => {
-    const filteredNodes = Object.entries(nodes).reduce((nodeAcc, [nodeKey, node]) => {
+  filteredData.value = Object.entries(data.value).reduce((acc: any, [key, nodes]) => {
+    const filteredNodes = Object.entries(nodes).reduce((nodeAcc: any, [nodeKey, node]) => {
       const matchesKey = String(nodeKey).toLowerCase().includes(searchTerm.value.toLowerCase())
 
       // Check if the description or examples match the search term
@@ -65,7 +67,7 @@ const filterNodes = () => {
       const matchesExamples =
         node.examples &&
         node.examples.some(
-          (example) =>
+          (example: string) =>
             typeof example === 'string' &&
             example.toLowerCase().includes(searchTerm.value.toLowerCase())
         )
@@ -94,7 +96,7 @@ const filterNodes = () => {
 
   // Clear results if none match
   if (Object.keys(filteredData.value).length === 0) {
-    filteredData.value = null
+    filteredData.value = {}
   }
 }
 </script>
