@@ -1,6 +1,6 @@
 import type { NodeType } from '@/types/node'
 
-const isObject = (value: any): value is Record<string, any> => {
+export const isObject = (value: any): string | any => {
   return typeof value === 'object' && value !== null
 }
 

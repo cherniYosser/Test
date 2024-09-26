@@ -37,7 +37,7 @@ const loading: Ref<boolean> = ref(false)
 
 onMounted(async () => {
   loading.value = true
-  const response = await fetch('https://app.m-itrust.com/v2/public/claims')
+  const response = await fetch('/api')
   if (!response.ok) {
     throw new Error('Network response was not ok')
   }

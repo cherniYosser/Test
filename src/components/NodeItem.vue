@@ -5,12 +5,7 @@
         {{ name }}
       </summary>
       <ul v-if="isObject(node)">
-        <NodeItem
-          v-for="(value, key) in node"
-          :key="key"
-          :name="key"
-          :node="value"
-        />
+        <NodeItem v-for="(value, key) in node" :key="key" :name="String(key)" :node="value" />
       </ul>
       <ul v-else-if="Array.isArray(node)">
         <li v-for="(item, index) in node" :key="index">
@@ -26,8 +21,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { isObject } from '@/utils/functions'
 
-const props = defineProps({
+defineProps({
   name: {
     type: String,
     required: true
@@ -39,10 +35,6 @@ const props = defineProps({
 })
 
 const isExpanded = ref(false)
-
-const isObject = (value: any): boolean => {
-  return value && typeof value === 'object' && !Array.isArray(value)
-}
 
 const toggle = (event: Event) => {
   isExpanded.value = (event.target as HTMLDetailsElement).open
