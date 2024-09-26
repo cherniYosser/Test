@@ -1,45 +1,19 @@
-# Mitrust-Test
+# Grammar Search Web App
 
-This template should help get you started developing with Vue 3 in Vite.
+## Overview
 
-## Recommended IDE Setup
+The **Grammar Search** Web App allows users to browse and search through various grammar rules. The app is built using modern technologies including **Vue 3**, **Vite**, and **TypeScript** for an efficient and streamlined development experience. The primary goal of this project is to create a responsive, fast, and user-friendly interface for searching grammar rules.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Features
 
-## Type Support for `.vue` Imports in TS
+- **Grammar Browsing**: Explore different grammar categories and rules.
+- **Search Functionality**: Perform a search to find specific grammar rules.
+- **Real-time Feedback**: Get search results dynamically as you type.
+- **Fast and Lightweight**: Built with Vue 3 and Vite for fast performance and efficient bundling.
+- **Type-Safe**: Written entirely in TypeScript to ensure type safety and code reliability.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Technologies
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+- **Vue 3**: The progressive JavaScript framework for building user interfaces.
+- **Vite**: Next-generation front-end tooling for fast and efficient development.
+- **TypeScript**: Type-safe language for better development experience.
