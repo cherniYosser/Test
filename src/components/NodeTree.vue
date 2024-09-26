@@ -37,7 +37,8 @@ const loading: Ref<boolean> = ref(false)
 
 onMounted(async () => {
   loading.value = true
-  const response = await fetch(import.meta.env.VITE_API_URL, {
+  const response = await fetch('/api', {
+    method: 'GET',
     mode: 'cors',
     headers: { 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Origin': '*' }
   })
